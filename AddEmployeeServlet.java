@@ -36,7 +36,7 @@ public class AddEmployeeServlet extends HttpServlet {
 
 		if(AppDAO.addEmployee(userForm)==2)
 		{
-			response.sendRedirect("addemployee.jsp?status=success");
+			response.sendRedirect("addemployee.jsp?status=Employee added Successfully");
 		}
 		else
 		{
