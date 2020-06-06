@@ -26,7 +26,7 @@ public class AddPlanServlet extends HttpServlet {
 
 		if(AppDAO.addPlan(plan)==1)
 		{
-			response.sendRedirect("viewbanks.jsp?status=success");
+			response.sendRedirect("viewbanks.jsp?status=plan added successfully");
 		}
 		else
 		{
