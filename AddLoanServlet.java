@@ -30,7 +30,7 @@ public class AddLoanServlet extends HttpServlet {
 
 		if(AppDAO.addLoan(loan)==1)
 		{
-			response.sendRedirect("addloan.jsp?status=success");
+			response.sendRedirect("addloan.jsp?status=loan added by customer successfully");
 		}
 		else
 		{
