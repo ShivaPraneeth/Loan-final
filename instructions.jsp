@@ -80,9 +80,7 @@
 	4.Income proof</br>
 	5.Signature verification proof</br>
     6.Pro-forma Invoice or Rate List</br>
-	</br>NOTE:  DOCUMENTS WILL BE COLLECTED MANUALLY BY THE EMPLOYEES OF THE PICKUP DEPARTMENT SO
-MAKE SURE THAT YOU PROVIDE YOUR ADDRESS PROPERLY.
-
+	
 	
 
 				
