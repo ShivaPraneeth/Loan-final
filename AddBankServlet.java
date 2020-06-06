@@ -36,7 +36,7 @@ public class AddBankServlet extends HttpServlet {
 
 		if(AppDAO.addBank(userForm)==2)
 		{
-			response.sendRedirect("addbank.jsp?status=success");
+			response.sendRedirect("addbank.jsp?status=Added bank Successfully");
 		}
 		else
 		{
