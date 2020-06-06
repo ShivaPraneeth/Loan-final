@@ -34,7 +34,7 @@ public class AddUsersServlet extends HttpServlet {
 
 		if(AppDAO.addCustomer(userForm)==2)
 		{
-			response.sendRedirect("addcustomers.jsp?status=success");
+			response.sendRedirect("addcustomers.jsp?status=customer added successfully");
 		}
 		else
 		{
