@@ -32,7 +32,6 @@
 				<ul id="menu">
 					<!-- put class="current" in the li tag for the selected page - to highlight which page you're on -->
 					<li><a class="current" href="bankhome.jsp">Home</a></li>
-					<li><a class="current" href="viewcustomerloans.jsp">Loans</a></li>
 					<li><a class="current" href="addbank.jsp">Add Bank</a></li>
 					<li><a class="current" href="viewbanks.jsp">View Bank</a></li>
 					<li class="hvr-sweep-to-bottom"><a href="addemployee.jsp">Add

@@ -1,11 +1,8 @@
-<%@page import="java.util.Iterator"%>
-<%@page
-	import="com.sun.xml.internal.bind.v2.runtime.reflect.ListIterator"%>
-<%@page import="com.voidmain.fm.dao.AppDAO"%>
-<%@page import="com.voidmain.fm.form.Employee"%>
-<%@page import="java.util.List"%>
-
 <!DOCTYPE HTML>
+<%@page import="java.util.Iterator"%>
+<%@page import="com.voidmain.fm.dao.AppDAO"%>
+<%@page import="com.voidmain.fm.form.Message"%>
+<%@page import="java.util.List"%>
 <html>
 
 <head>
@@ -19,24 +16,27 @@
 <link rel="stylesheet" type="text/css"
 	href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" />
 <link rel="stylesheet" type="text/css" href="style/style.css" />
-
 </head>
 
 <body>
 	<div id="main">
 		<div id="header">
 			<div id="logo">
+			
 				<div class="slogan">Loan Automation</div>
 			</div>
-			<div >
+			<div>
 				<ul id="menu">
 					<!-- put class="current" in the li tag for the selected page - to highlight which page you're on -->
+
 					<li><a class="current" href="bankhome.jsp">Home</a></li>
 					<li><a class="current" href="addbank.jsp">Add Bank</a></li>
 					<li><a class="current" href="viewbanks.jsp">View Bank</a></li>
 					<li class="hvr-sweep-to-bottom"><a href="addemployee.jsp">Add Employee</a></li>
 					<li class="hvr-sweep-to-bottom"><a href="viewemployees.jsp">View Employees</a></li>
+					<li class="hvr-sweep-to-bottom"><a href="viewadminmessages.jsp">Inbox</a></li>
 					<li class="hvr-sweep-to-bottom"><a href="logout.jsp">Logout</a></li>
+					
 				</ul>
 			</div>
 		</div>
@@ -52,61 +52,31 @@
 				<%
 					} else {
 				%>
-				<h1>View Employees</h1>
+				<h1>View Messages</h1>
 				<%
 					}
 				%>
 
 				<table class="imagetable">
 					<tr>
-						<th>UserName</th>
-						<th>Address</th>
-						<th>Mobile</th>
-						<th>Email</th>
-						<th>Type</th>
-						<th>Activate</th>
-						<th>DeActivate</th>
-
+						<th>ID</th>
+						<th>Sender</th>
+						<th>Message</th>
 					</tr>
 					<%
-						List<Employee> userForms = AppDAO.getEmployees();
+						List<Message> messages = AppDAO.getMessages();
 
-						Iterator<Employee> iterator = userForms.iterator();
+						Iterator<Message> iterator = messages.iterator();
 
 						while (iterator.hasNext()) {
 
-							Employee userForm = iterator.next();
-
-							String status1 = "activated";
-							String status2 = "waiting";
+							Message message = iterator.next();
 					%>
 					<tr>
-						<td><%=userForm.getUserName()%></td>
-						<td><%=userForm.getAddress()%></td>
-						<td><%=userForm.getMobile()%></td>
-						<td><%=userForm.getEmail()%></td>
-						<td><%=userForm.getType()%></td>
-						<td><a
-							href="viewemployees.jsp?username=<%=userForm.getUserName()%>&status=<%=status1%>">Activate</a>
-						</td>
-						<td><a
-							href="viewemployees.jsp?username=<%=userForm.getUserName()%>&status=<%=status2%>">Deactivate</a>
-					</tr>
+						<td><%=message.getId()%></td>
+						<td><%=message.getUsername()%></td>
+						<td><%=message.getMessage()%></td>
 					<%
-						}
-					%>
-					<%
-						String username = request.getParameter("username");
-						String status = request.getParameter("status");
-
-						if (username != null && status != null) {
-							int result = AppDAO.activateUser(username, status);
-
-							if (result == 1) {
-								response.sendRedirect("viewemployees.jsp?status=success");
-							} else {
-								response.sendRedirect("viewemployees.jsp?status=failed");
-							}
 						}
 					%>
 				</table>
